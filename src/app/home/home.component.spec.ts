@@ -24,15 +24,7 @@ describe('HomeComponent', () => {
   });
 
   it(`should have as title 'Amypro'`, () => {
-    const fixture = TestBed.createComponent(HomeComponent);
     const app = fixture.componentInstance;
     expect(app.title).toEqual('Amypro');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(HomeComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('Amypro app is running!');
   });
 });
