@@ -2,14 +2,12 @@
   display: grid;
   grid-template-rows: repeat(auto-fill, minmax(20px, 1fr));
   grid-gap: 1rem;
+  margin: 0em 1em;
 }
 
 .content {
   display: flex;
   flex-direction: column;
-}
-
-.image-container {
   margin: 0em 10em;
 }
 
@@ -20,17 +18,11 @@
 
 .welcome {
   width: auto;
-  margin: 0em 10em;
 }
 
 @media only screen and (max-width: 812px) {
-  .welcome {
-    width: auto;
+  .content {
     margin: auto;
   }
 
-  .image-container {
-    width: auto;
-    margin: auto;
-  }
 }
