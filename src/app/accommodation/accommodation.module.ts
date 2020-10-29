@@ -3,9 +3,6 @@ import { CommonModule } from '@angular/common';
 
 import { AccommodationRoutingModule } from './accommodation-routing.module';
 import { AccommodationComponent } from './accommodation.component';
-import { SharedModule } from '../shared/shared.module';
-import { HeaderComponent } from '../shared/header/header.component';
-import { FooterComponent } from '../shared/footer/footer.component';
 
 
 @NgModule({
@@ -14,8 +11,7 @@ import { FooterComponent } from '../shared/footer/footer.component';
   ],
   imports: [
     CommonModule,
-    AccommodationRoutingModule,
-    SharedModule
+    AccommodationRoutingModule
   ]
 })
 export class AccommodationModule { }
