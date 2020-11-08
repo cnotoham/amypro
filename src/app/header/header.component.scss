@@ -33,7 +33,18 @@ a.active {
   color: darkcyan;
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 320px) {
+  nav {
+    margin: auto;
+    ul {
+      li > a {
+        padding: 0rem 0.25rem;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 321px) and (max-width: 800px) {
   nav {
     margin: auto;
     ul {
