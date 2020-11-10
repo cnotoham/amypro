@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { AccommodationRoutingModule } from './accommodation-routing.module';
 import { AccommodationComponent } from './accommodation.component';
 
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 
 @NgModule({
   declarations: [
@@ -11,7 +13,8 @@ import { AccommodationComponent } from './accommodation.component';
   ],
   imports: [
     CommonModule,
-    AccommodationRoutingModule
+    AccommodationRoutingModule,
+    FontAwesomeModule
   ]
 })
 export class AccommodationModule { }
