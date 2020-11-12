@@ -28,6 +28,12 @@
   height: auto;
 }
 
+@media only screen and (min-width: 667px) and (max-width: 740px) {
+  .img-container {
+    padding-left: 1rem;
+  }
+}
+
 @media only screen and (max-width: 767px) {
   .img-container {
     margin: 1rem 0rem;
