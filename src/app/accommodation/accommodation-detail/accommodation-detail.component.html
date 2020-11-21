@@ -1,0 +1,18 @@
+<div class="accommodation-container">
+  <app-key-feature></app-key-feature>
+  <div>
+    <mat-carousel
+      timings="200ms ease-in"
+      interval="6000"
+      proportion=100
+      [hideArrows]="false"
+      [hideIndicators]="false"
+    >
+      <mat-carousel-slide
+        *ngFor="let slide of slides; let i = index"
+        [image]="slide.imageUrl"
+        [hideOverlay]="false"
+      ></mat-carousel-slide>
+    </mat-carousel>
+  </div>
+</div>
