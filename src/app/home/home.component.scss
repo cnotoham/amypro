@@ -3,10 +3,20 @@
 }
 
 .image-container {
+  text-align: center;
   margin: 1rem 2rem 0em 2rem;
 
   .responsive {
-    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+.banner-container {
+  text-align: center;
+
+  .responsive {
+    max-width: 100%;
     height: auto;
   }
 }
@@ -14,7 +24,7 @@
 @media only screen and (max-width: 1200px)
 {
   .content {
-    margin: 1rem;
+    margin: 0rem 1rem;
   }
 
   .image-container {
