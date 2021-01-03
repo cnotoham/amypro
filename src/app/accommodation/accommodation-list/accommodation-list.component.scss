@@ -1,14 +1,52 @@
-.img-container {
+.accommodation-list-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.img-container-1 {
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  margin: 1rem 0rem;
+  margin: 1rem 0.5rem 1rem 0rem;
+  max-width: 48%;
 
-  .responsive {
-    width: 100%;
+  .responsive-1 {
+    max-width: 100%;
     height: auto;
   }
+}
+
+@media only screen and (min-width: 568px) {
+  .img-container-1 {
+    max-width: 48.5%;
+  }
+}
+
+@media only screen and (min-width: 667px) {
+  .img-container-1 {
+    max-width: 49%;
+  }
+}
+
+@media only screen and (min-width: 1497px) {
+  .img-container-1 {
+    max-width: 49.4%;
+  }
+}
+
+.img-container-2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  margin: 1rem 0rem 1rem 0.5rem;
+
+  .responsive {
+    max-width: 100%;
+    height: auto;
+  }
+
 }
 
 .image-items {
