@@ -30,6 +30,12 @@
     margin-left: auto;
     margin-right: auto;
   }
+
+  .banner-container {
+    .responsive {
+      max-width: 85%;
+    }
+  }
 }
 
 @media only screen and (max-width: 1200px)
