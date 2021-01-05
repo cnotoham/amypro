@@ -23,6 +23,20 @@
   }
 }
 
-.accommodation-name {
+.carousel-footer {
+  display: flex;
+  flex-direction: row;
   margin-top: 1rem;
+  justify-content: space-around;
+
+  .label--emphasize {
+    line-height: 36px;
+    font-weight: bold;
+  }
+}
+
+@media only screen and (max-width: 766px) {
+  .btn--display-mode {
+    display: none;
+  }
 }
