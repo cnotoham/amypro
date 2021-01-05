@@ -15,8 +15,13 @@
         ></mat-carousel-slide>
       </mat-carousel>
     </div>
-    <div class="accommodation-name">
-      {{ dandenong }}
+    <div class="carousel-footer">
+      <div class="label--emphasize">
+        {{ dandenong }}
+      </div>
+      <div class="btn--display-mode">
+        <button mat-raised-button (click)="showMap('dandenong')">show map</button>
+      </div>
     </div>
   </div>
   <div class="carousel-container">
@@ -35,8 +40,13 @@
         ></mat-carousel-slide>
       </mat-carousel>
     </div>
-    <div class="accommodation-name">
-      {{ blackburn }}
+    <div class="carousel-footer">
+      <div class="label--emphasize">
+        {{ blackburn }}
+      </div>
+      <div class="btn--display-mode">
+        <button mat-raised-button (click)="showMap('blackburn')">show map</button>
+      </div>
     </div>
   </div>
 </div>
