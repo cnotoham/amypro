@@ -80,8 +80,6 @@ export class AccommodationService {
         ]
       }
     ];
-
-    console.log(this.accommodation);
   }
 
   public getAccommodations(): Observable<Accommodation[]> {
@@ -90,8 +88,6 @@ export class AccommodationService {
 
   public getAccommodation(id: number): Observable<Accommodation> {
     const accommodation = this.accommodation.slice(id-1);
-    console.log('AccommodationService::getAccommodation');
-    console.log(accommodation);
     return of(accommodation[0]);
   }
 }

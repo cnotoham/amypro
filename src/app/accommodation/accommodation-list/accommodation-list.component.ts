@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AccommodationService } from '../accommodation.service';
+import { Slide } from '../slide';
 
 @Component({
   selector: 'app-accommodation-list',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AccommodationListComponent implements OnInit {
 
-  constructor() { }
+  constructor(private accommodationService: AccommodationService) { }
+
+  dandenongSlides: Slide[];
+  blackBurnSlides: Slide[];
+  dandenong: string;
+  blackburn: string;
 
   ngOnInit(): void {
+    this.accommodationService.getAccommodations()
+        .subscribe(resp => {
+          this.dandenongSlides = resp[0].slides;
+          this.dandenong = resp[0].name;
+          this.blackBurnSlides = resp[1].slides;
+          this.blackburn = resp[1].name;
+        });
   }
 
 }

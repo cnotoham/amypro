@@ -1,18 +1,42 @@
 <div class="accommodation-list-container">
-  <div class="img-container-1">
-    <div class="image-items">
-      <a [routerLink]="['1']"><img src="../../assets/images/Dandy House 1024 1.jpg" class="responsive-1"></a>
+  <div class="carousel-container">
+    <div>
+      <mat-carousel
+        timings="200ms ease-in"
+        interval="6000"
+        proportion=80
+        [hideArrows]="false"
+        [hideIndicators]="true"
+      >
+        <mat-carousel-slide
+          *ngFor="let slide of dandenongSlides; let i = index"
+          [image]="slide.imageUrl"
+          [hideOverlay]="false"
+        ></mat-carousel-slide>
+      </mat-carousel>
     </div>
-    <div class="link-text">
-      <a [routerLink]="['1']" routerLinkActive="active">Dandenong</a>
+    <div class="accommodation-name">
+      {{ dandenong }}
     </div>
   </div>
-  <div class="img-container-2">
-    <div class="image-items">
-      <a [routerLink]="['2']"><img src="../../assets/images/IMG_0025.JPG" class="responsive"></a>
+  <div class="carousel-container">
+    <div>
+      <mat-carousel
+        timings="200ms ease-in"
+        interval="6000"
+        proportion=80
+        [hideArrows]="false"
+        [hideIndicators]="true"
+      >
+        <mat-carousel-slide
+          *ngFor="let slide of blackBurnSlides; let i = index"
+          [image]="slide.imageUrl"
+          [hideOverlay]="false"
+        ></mat-carousel-slide>
+      </mat-carousel>
     </div>
-    <div class="link-text">
-      <a [routerLink]="['2']" routerLinkActive="active">Blackburn</a>
+    <div class="accommodation-name">
+      {{ blackburn }}
     </div>
   </div>
 </div>
