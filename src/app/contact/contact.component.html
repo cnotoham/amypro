@@ -1,5 +1,99 @@
-<div  class="content">
-  <div class="image-container">
-    <img src="../../assets/images/home_page_image.jpg" class="responsive">
+<div class="content">
+  <div>
+    If you have any enquiries, feel free to contact us (Amy and Willy) at <strong>0416138808</strong> (mobile), or fill in the form below
+  </div>
+  <div>
+    <form role="form" novalidate [formGroup]="contactUsForm">
+      <div class="field-group">
+        <label for="nameId">Name:</label>
+        <input type="text"
+             class="input--width"
+             id="nameId"
+             formControlName="name"
+             placeholder="Enter name"
+             [ngClass]="{'form__text--invalid' : (contactUsForm.get('name').touched ||
+                                                  contactUsForm.get('name').dirty) &&
+                                                  contactUsForm.get('name').invalid }"
+             required />
+        <div *ngIf="(contactUsForm.get('name').touched ||
+                    contactUsForm.get('name').dirty) &&
+                    contactUsForm.get('name').errors?.required">
+          Please fill out this field
+        </div>
+      </div>
+      <div class="field-group">
+        <label for="phoneId">Phone:</label>
+        <input type="tel"
+             class="input--width"
+             id="phoneId"
+             formControlName="phone"
+             placeholder="Enter phone"
+             maxlength="50"/>
+      </div>
+      <div class="field-group">
+        <label for="emailId">Email:</label>
+        <input type="email"
+            class="input--width"
+            id="emailId"
+            formControlName="email"
+            placeholder="Enter email"
+            maxlength="50"
+            [ngClass]="{'form__text--invalid' : (contactUsForm.get('email').touched ||
+                                        contactUsForm.get('email').dirty) &&
+                                        contactUsForm.get('email').invalid }"
+            required />
+        <div *ngIf="(contactUsForm.get('email').touched ||
+                    contactUsForm.get('email').dirty) &&
+                    contactUsForm.get('email').errors?.required">
+          Please fill out this field
+        </div>
+        <div *ngIf="(contactUsForm.get('email').touched ||
+                    contactUsForm.get('email').dirty) &&
+                    contactUsForm.get('email').errors?.email">
+          Please enter a valid email
+        </div>
+      </div>
+      <div class="field-group">
+        <label for="subjectId">Subject:</label>
+        <input type="text"
+             class="input--width"
+             id="subjectId"
+             formControlName="subject"
+             placeholder="Enter subject"
+             maxlength="100"
+             [ngClass]="{'form__text--invalid' : (contactUsForm.get('subject').touched ||
+                                         contactUsForm.get('subject').dirty) &&
+                                         contactUsForm.get('subject').invalid }"
+             required />
+        <div *ngIf="(contactUsForm.get('subject').touched ||
+                    contactUsForm.get('subject').dirty) &&
+                    contactUsForm.get('subject').errors?.required">
+          Please fill out this field
+        </div>
+      </div>
+      <div class="field-group">
+        <label for="messageId">Message:</label>
+        <textarea id="messageId"
+                  class="input--width"
+                  formControlName="message"
+                  placeholder="Enter message"
+                  rows="5"
+                  cols="35"
+                  maxlength="255"
+                  [ngClass]="{'form__text--invalid' : (contactUsForm.get('message').touched ||
+                                              contactUsForm.get('message').dirty) &&
+                                              contactUsForm.get('message').invalid }"
+                  required >
+        </textarea>
+        <div *ngIf="(contactUsForm.get('message').touched ||
+                    contactUsForm.get('message').dirty) &&
+                    contactUsForm.get('message').errors?.required">
+          Please fill out this field
+        </div>
+      </div>
+      <div class="field-group">
+        <button type="button" mat-raised-button [disabled]="contactUsForm.invalid" (click)="save()" style="background-color: #424242;">Send Email</button>
+      </div>
+    </form>
   </div>
 </div>
