@@ -1,23 +1,28 @@
 .content {
-  margin: 0rem 15rem;
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
 }
 
-.image-container {
-  margin: 1rem 2rem 0em 2rem;
-
-  .responsive {
-    width: 100%;
-    height: auto;
-  }
+label + input,
+label + textarea {
+  margin-top: 0.5rem;
 }
 
-@media only screen and (max-width: 1200px)
-{
+.field-group {
+  margin-top: 1.5rem;
+}
+
+.form__text--invalid {
+  border: 2px solid #a94442;
+}
+
+.input--width {
+  width: 100%;
+}
+
+@media only screen and (min-width: 1200px) {
   .content {
-    margin: 1rem;
-  }
-
-  .image-container {
-    margin: 0rem 0.5rem;
+    margin: 0rem 15rem;
   }
 }
