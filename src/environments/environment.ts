@@ -3,8 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
-  AzureFuncBaseUri: 'http://localhost:7071'
+  production: false
 };
 
 /*
