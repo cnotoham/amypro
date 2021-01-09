@@ -23,6 +23,13 @@ export class ContactComponent implements OnInit {
   }
 
   save(): void {
-    console.log('saved');
+    console.log(this.contactUsForm.get('name').value);
+    console.log(this.contactUsForm.get('phone').value);
+    console.log(this.contactUsForm.get('email').value);
+    console.log(this.contactUsForm.get('subject').value);
+    console.log(this.contactUsForm.get('message').value);
+
+    // TODO: call azure function to send email
+    this.contactUsForm.reset();
   }
 }

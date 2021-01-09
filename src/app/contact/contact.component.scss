@@ -5,7 +5,8 @@
 }
 
 label + input,
-label + textarea {
+label + textarea,
+.prompt {
   margin-top: 0.5rem;
 }
 
@@ -14,11 +15,23 @@ label + textarea {
 }
 
 .form__text--invalid {
-  border: 2px solid #a94442;
+  border: 2px solid #a94442 !important;
 }
 
-.input--width {
+.input {
   width: 100%;
+  border: 2px solid #8b8a8b;
+}
+
+.input:not(textarea)
+{
+  line-height: 1;
+  height: 2.25rem;
+}
+
+.btn--disabled[disabled] {
+  background-color: #424242;
+  cursor: not-allowed;
 }
 
 @media only screen and (min-width: 1200px) {
