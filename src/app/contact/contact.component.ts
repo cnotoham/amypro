@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
-import { environment } from 'src/environments/environment';
-
+import { environment } from '../../environments/environment'
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
@@ -29,9 +28,10 @@ export class ContactComponent implements OnInit {
     console.log(this.contactUsForm.get('email').value);
     console.log(this.contactUsForm.get('subject').value);
     console.log(this.contactUsForm.get('message').value);
-    console.log(`AzureFuncBaseUri: ${ environment.AzureFuncBaseUri }`);
 
-    const resp = await fetch(`${ environment.AzureFuncBaseUri }/api/SendMail?name=${ this.contactUsForm.get('name').value }`);
+    console.log('Azure Function base uri: ' + environment.azFuncBaseUri);
+
+    const resp = await fetch(`${ environment.azFuncBaseUri }api/SendMail?name=${ this.contactUsForm.get('name').value }`);
     console.log(await resp.text());
 
     // TODO: call azure function to send email

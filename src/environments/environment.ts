@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  AzureFuncBaseUri: 'http://localhost:7071'
+  azFuncBaseUri: ''
 };
 
 /*
