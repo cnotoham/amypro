@@ -28,7 +28,7 @@ export class AccommodationListComponent implements OnInit {
         .subscribe(resp => {
           this.dandenongSlides = resp[0].slides;
           this.dandenong = resp[0].name;
-          this.blackBurnSlides = resp[1].slides;
+          this.blackBurnSlides = resp[1].slides.reverse();
           this.blackburn = resp[1].name;
         });
   }
