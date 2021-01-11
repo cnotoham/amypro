@@ -6,40 +6,58 @@ const httpTrigger: AzureFunction = async function (context: Context, req: HttpRe
       context.log(`apiKey: ${process.env.apiKey}`);
       SendGrid.setApiKey(process.env.apiKey);
       const msg = {
-        to: 'cnotoham@yahoo.com.au',
-        from: 'webmaster <cnotoham@yahoo.com.au>',
-        subject: escape(req.body.subject),
-        text: escape(req.body.message)
+        to: process.env.emailTo,
+        from: process.env.emailFrom,
+        subject: req.body.subject,
+        text: req.body.message
       };
 
       try {
         const resp = await SendGrid.send(msg);
       } catch (error) {
+        let errMsg = 'An error has occurred';
         if (error.response) {
-          context.log(`An error has occurred: ${ error.response.body }`);
+          let responseMsg =  {
+            message: `${errMsg}: ${ error.response.body }`
+          };
+
+          context.log(`${errMsg}: ${ error.response.body }`);
           context.res = {
             status: 500,
-            body: `An error has occurred: ${ error.response.body }`
+            body: JSON.stringify(responseMsg)
           };
           return;
         }
+
+        let responseMsg = {
+          message: errMsg
+        };
+
         context.res = {
           status: 500,
-          body: 'An error has occurred'
+          body: JSON.stringify(responseMsg)
         };
         return;
       }
 
+      const responseSuccess = {
+        message: 'success'
+      };
+
       context.res = {
           // status: 200, /* Defaults to 200 */
-          body: req.body
+          body: JSON.stringify(responseSuccess)
       };
       return;
     }
 
+    const responseBadRequest = {
+      message: 'Invalid request'
+    };
+
     context.res = {
       status: 400,
-      body: 'Invalid request'
+      body: JSON.stringify(responseBadRequest)
   };
 };
 

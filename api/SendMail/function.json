@@ -18,8 +18,7 @@
     {
       "type": "sendGrid",
       "direction": "out",
-      "name": "$return",
-      "from": "webmaster <cnotoham@yahoo.com.au>"
+      "name": "$return"
     }
   ],
   "scriptFile": "../dist/SendMail/index.js"
