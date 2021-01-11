@@ -22,17 +22,19 @@ export class ContactComponent implements OnInit {
     });
   }
 
-  async save(): Promise<void> {
-    console.log(this.contactUsForm.get('name').value);
-    console.log(this.contactUsForm.get('phone').value);
-    console.log(this.contactUsForm.get('email').value);
-    console.log(this.contactUsForm.get('subject').value);
-    console.log(this.contactUsForm.get('message').value);
+  async onSubmit(): Promise<void> {
+    const url = `${ environment.azFuncBaseUri }api/SendMail`;
 
-    console.log('Azure Function base uri: ' + environment.azFuncBaseUri);
+    console.log('url: ' + url);
+    const resp = await fetch(url, {
+                                    method: 'POST',
+                                    headers: {
+                                      'Content-Type': 'application/json'
+                                    },
+                                    body: JSON.stringify(this.contactUsForm.value)
+                                  });
 
-    const resp = await fetch(`${ environment.azFuncBaseUri }api/SendMail?name=${ this.contactUsForm.get('name').value }`);
-    console.log(await resp.text());
+    console.log(await resp.json());
 
     // TODO: call azure function to send email
     this.contactUsForm.reset();

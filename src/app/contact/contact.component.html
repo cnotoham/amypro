@@ -3,7 +3,7 @@
     If you have any enquiries, feel free to contact us (Amy and Willy) at <strong>0416138808</strong> (mobile), or fill in the form below
   </div>
   <div>
-    <form role="form" novalidate (ngSubmit)="save()" [formGroup]="contactUsForm">
+    <form role="form" novalidate (ngSubmit)="onSubmit()" [formGroup]="contactUsForm">
       <div class="field-group">
         <label for="nameId">Name:</label>
         <input type="text"
