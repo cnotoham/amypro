@@ -3,7 +3,6 @@ import * as SendGrid from '@sendgrid/mail';
 
 const httpTrigger: AzureFunction = async function (context: Context, req: HttpRequest): Promise<void> {
     if (req.body && req.body.name) {
-      context.log(`apiKey: ${process.env.apiKey}`);
       SendGrid.setApiKey(process.env.apiKey);
       const msg = {
         to: process.env.emailTo,

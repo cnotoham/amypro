@@ -1,4 +1,4 @@
-<div class="accommodation-list-container">
+<div class="accommodation-list-container" *ngIf="!isLoading else loading">
   <div class="carousel-container">
     <div>
       <mat-carousel
@@ -50,3 +50,7 @@
     </div>
   </div>
 </div>
+<ng-template #loading>
+  <p>loading images...</p>
+  <mat-progress-bar mode="indeterminate" color="accent"></mat-progress-bar>
+</ng-template>
