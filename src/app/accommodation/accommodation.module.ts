@@ -11,6 +11,7 @@ import { AccommodationListComponent } from './accommodation-list/accommodation-l
 import { MatCarouselModule } from '@ngbmodule/material-carousel';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule} from '@angular/material/dialog';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { MatDialogModule} from '@angular/material/dialog';
     FontAwesomeModule,
     MatButtonModule,
     MatDialogModule,
+    MatProgressBarModule,
     MatCarouselModule.forRoot()
   ],
   entryComponents: [
