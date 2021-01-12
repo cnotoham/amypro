@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { ContactComponent } from './contact.component';
 
@@ -10,6 +11,9 @@ describe('ContactComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         ContactComponent
+      ],
+      imports: [
+        ReactiveFormsModule
       ]
     })
     .compileComponents();
