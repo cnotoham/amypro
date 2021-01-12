@@ -1,3 +1,4 @@
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
@@ -17,6 +18,9 @@ describe('MapComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         MapComponent
+      ],
+      schemas: [
+        CUSTOM_ELEMENTS_SCHEMA
       ],
       providers: [
         { provide: MAT_DIALOG_DATA, useValue: mockDialogData }

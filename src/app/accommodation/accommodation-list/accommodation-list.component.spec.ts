@@ -1,3 +1,4 @@
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatDialogModule } from '@angular/material/dialog';
 
@@ -11,6 +12,9 @@ describe('AccommodationListComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         AccommodationListComponent
+      ],
+      schemas: [
+        CUSTOM_ELEMENTS_SCHEMA
       ],
       imports: [
         MatDialogModule
