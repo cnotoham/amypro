@@ -11,6 +11,7 @@ export class ContactComponent implements OnInit {
   contactUsForm: FormGroup;
   showPrompt = false;
   showError = false;
+  isLoading = false;
 
   constructor(private fb: FormBuilder) { }
 
@@ -25,6 +26,7 @@ export class ContactComponent implements OnInit {
   }
 
   async onSubmit(): Promise<void> {
+    this.isLoading = true;
     const url = `${ environment.azFuncBaseUri }api/SendMail`;
 
     // send email
@@ -43,5 +45,6 @@ export class ContactComponent implements OnInit {
     }
 
     this.contactUsForm.reset();
+    this.isLoading = false;
   }
 }
