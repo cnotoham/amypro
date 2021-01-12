@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, resolveForwardRef } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AccommodationService } from '../accommodation.service';
 import { MapComponent } from '../map/map.component';
@@ -15,6 +15,8 @@ export class AccommodationListComponent implements OnInit {
   blackBurnSlides: Slide[];
   dandenong: string;
   blackburn: string;
+  isLoading = true;
+  srcArray: Slide[];
 
   private placeIdMap = new Map();
 
@@ -23,7 +25,7 @@ export class AccommodationListComponent implements OnInit {
     this.placeIdMap.set('blackburn','ChIJvx4BnjIV1moRCi1eVGweHwU');
   }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
     this.accommodationService.getAccommodations()
         .subscribe(resp => {
           this.dandenongSlides = resp[0].slides;
@@ -31,6 +33,9 @@ export class AccommodationListComponent implements OnInit {
           this.blackBurnSlides = resp[1].slides.reverse();
           this.blackburn = resp[1].name;
         });
+
+        this.srcArray = this.dandenongSlides.concat(this.blackBurnSlides);
+        this.cacheImages(this.srcArray.map(slide => slide.imageUrl));
   }
 
   showMap(property: string) {
@@ -40,4 +45,20 @@ export class AccommodationListComponent implements OnInit {
       }
     });
   }
+
+  cacheImages = async (srcArray) => {
+    const promises = await srcArray.map((src) => {
+      return new Promise(function (resolve, reject) {
+        const img = new Image();
+
+        console.log(`img src: ${ src }`);
+        img.onload = resolve;
+        img.onerror = reject;
+        img.src = src;
+      });
+    });
+
+    await Promise.all(promises);
+    this.isLoading = false;
+  };
 }
