@@ -96,4 +96,10 @@
       </div>
     </form>
   </div>
+  <div *ngIf="showPrompt">
+    <p>Thank you for your enquiry. We will contact you soon.</p>
+  </div>
+  <div *ngIf="showError">
+    <p>We are currently having a technical issue in sending your email. Please try again later. We apologise for the inconvenience.</p>
+  </div>
 </div>
