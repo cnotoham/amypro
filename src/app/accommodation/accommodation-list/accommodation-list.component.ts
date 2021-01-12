@@ -30,12 +30,12 @@ export class AccommodationListComponent implements OnInit {
         .subscribe(resp => {
           this.dandenongSlides = resp[0].slides;
           this.dandenong = resp[0].name;
-          this.blackBurnSlides = resp[1].slides.reverse();
+          this.blackBurnSlides = resp[1].slides;
           this.blackburn = resp[1].name;
-        });
 
-        this.srcArray = this.dandenongSlides.concat(this.blackBurnSlides);
-        this.cacheImages(this.srcArray.map(slide => slide.imageUrl));
+          this.srcArray = this.dandenongSlides.concat(this.blackBurnSlides);
+          this.cacheImages(this.srcArray.map(slide => slide.imageUrl));
+          });
   }
 
   showMap(property: string) {
@@ -51,7 +51,6 @@ export class AccommodationListComponent implements OnInit {
       return new Promise(function (resolve, reject) {
         const img = new Image();
 
-        console.log(`img src: ${ src }`);
         img.onload = resolve;
         img.onerror = reject;
         img.src = src;
