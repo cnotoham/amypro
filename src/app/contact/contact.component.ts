@@ -9,6 +9,8 @@ import { environment } from '../../environments/environment'
 export class ContactComponent implements OnInit {
 
   contactUsForm: FormGroup;
+  showPrompt = false;
+  showError = false;
 
   constructor(private fb: FormBuilder) { }
 
@@ -25,7 +27,7 @@ export class ContactComponent implements OnInit {
   async onSubmit(): Promise<void> {
     const url = `${ environment.azFuncBaseUri }api/SendMail`;
 
-    console.log('url: ' + url);
+    // send email
     const resp = await fetch(url, {
                                     method: 'POST',
                                     headers: {
@@ -34,9 +36,12 @@ export class ContactComponent implements OnInit {
                                     body: JSON.stringify(this.contactUsForm.value)
                                   });
 
-    console.log(await resp.json());
+    if (resp.status === 200) {
+      this.showPrompt = true;
+    } else {
+      this.showError = true;
+    }
 
-    // TODO: call azure function to send email
     this.contactUsForm.reset();
   }
 }

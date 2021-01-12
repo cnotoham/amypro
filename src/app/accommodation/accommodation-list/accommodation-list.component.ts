@@ -1,4 +1,4 @@
-import { Component, OnInit, resolveForwardRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AccommodationService } from '../accommodation.service';
 import { MapComponent } from '../map/map.component';
