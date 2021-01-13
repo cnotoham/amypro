@@ -15,5 +15,6 @@ html, body {
 @media only screen and (max-width: 736px) {
  html, body {
    font-size: small;
+   -webkit-text-size-adjust: 100%;
  }
 }
