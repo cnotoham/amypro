@@ -9,6 +9,13 @@
   padding-left: 0.5rem;
 }
 
+@media only screen and (max-width: 736px) {
+  .feature__item--left-padded {
+    font-size: small;
+    text-size-adjust: none;
+  }
+ }
+
 @media only screen and (max-width: 1200px) {
   .key-feature-item {
     padding: 0.25rem 0rem;
