@@ -5,12 +5,12 @@
   <div>
     <form role="form" novalidate (ngSubmit)="onSubmit()" [formGroup]="contactUsForm">
       <div class="field-group">
-        <label for="nameId">Name:</label>
+        <label for="nameId">Name</label>
         <input type="text"
              class="input"
              id="nameId"
              formControlName="name"
-             placeholder="Enter name"
+             placeholder="Enter name (required)"
              [ngClass]="{'form__text--invalid' : (contactUsForm.get('name').touched ||
                                                   contactUsForm.get('name').dirty) &&
                                                   contactUsForm.get('name').invalid }"
@@ -22,7 +22,7 @@
         </div>
       </div>
       <div class="field-group">
-        <label for="phoneId">Phone:</label>
+        <label for="phoneId">Phone</label>
         <input type="tel"
              class="input"
              id="phoneId"
@@ -31,12 +31,12 @@
              maxlength="50"/>
       </div>
       <div class="field-group">
-        <label for="emailId">Email:</label>
+        <label for="emailId">Email</label>
         <input type="email"
             class="input"
             id="emailId"
             formControlName="email"
-            placeholder="Enter email"
+            placeholder="Enter email (required)"
             maxlength="50"
             [ngClass]="{'form__text--invalid' : (contactUsForm.get('email').touched ||
                                         contactUsForm.get('email').dirty) &&
@@ -54,12 +54,12 @@
         </div>
       </div>
       <div class="field-group">
-        <label for="subjectId">Subject:</label>
+        <label for="subjectId">Subject</label>
         <input type="text"
              class="input"
              id="subjectId"
              formControlName="subject"
-             placeholder="Enter subject"
+             placeholder="Enter subject (required)"
              maxlength="100"
              [ngClass]="{'form__text--invalid' : (contactUsForm.get('subject').touched ||
                                          contactUsForm.get('subject').dirty) &&
@@ -72,11 +72,11 @@
         </div>
       </div>
       <div class="field-group">
-        <label for="messageId">Message:</label>
+        <label for="messageId">Message</label>
         <textarea id="messageId"
                   class="input"
                   formControlName="message"
-                  placeholder="Enter message"
+                  placeholder="Enter message (required)"
                   rows="5"
                   cols="35"
                   maxlength="255"
