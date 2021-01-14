@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
-import { environment } from '../../environments/environment'
+import { environment } from '../../environments/environment';
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
@@ -28,6 +28,10 @@ export class ContactComponent implements OnInit {
   async onSubmit(): Promise<void> {
     this.isLoading = true;
     const url = `${ environment.azFuncBaseUri }api/SendMail`;
+    const reqBody = {
+      type: 'contact',
+      data: this.contactUsForm.value
+    };
 
     // send email
     const resp = await fetch(url, {
@@ -35,7 +39,7 @@ export class ContactComponent implements OnInit {
                                     headers: {
                                       'Content-Type': 'application/json'
                                     },
-                                    body: JSON.stringify(this.contactUsForm.value)
+                                    body: JSON.stringify(reqBody)
                                   });
 
     if (resp.status === 200) {

@@ -1,4 +1,4 @@
-import { Slide } from "./slide";
+import { Slide } from './slide';
 
 export interface Accommodation {
   id: number;

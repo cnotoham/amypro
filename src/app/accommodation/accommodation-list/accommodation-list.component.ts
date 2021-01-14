@@ -22,7 +22,7 @@ export class AccommodationListComponent implements OnInit {
 
   constructor(private accommodationService: AccommodationService, public dialog: MatDialog) {
     this.placeIdMap.set('dandenong', 'ChIJ4-THis9q1moRU3T6SjW7Q3g');
-    this.placeIdMap.set('blackburn','ChIJvx4BnjIV1moRCi1eVGweHwU');
+    this.placeIdMap.set('blackburn', 'ChIJvx4BnjIV1moRCi1eVGweHwU');
   }
 
   async ngOnInit(): Promise<void> {
@@ -38,7 +38,7 @@ export class AccommodationListComponent implements OnInit {
           });
   }
 
-  showMap(property: string) {
+  showMap(property: string): void {
     const dialogRef = this.dialog.open(MapComponent, {
       data : {
         placeId: this.placeIdMap.get(property)
@@ -48,7 +48,7 @@ export class AccommodationListComponent implements OnInit {
 
   cacheImages = async (srcArray) => {
     const promises = await srcArray.map((src) => {
-      return new Promise(function (resolve, reject) {
+      return new Promise((resolve, reject) => {
         const img = new Image();
 
         img.onload = resolve;
@@ -59,5 +59,5 @@ export class AccommodationListComponent implements OnInit {
 
     await Promise.all(promises);
     this.isLoading = false;
-  };
+  }
 }

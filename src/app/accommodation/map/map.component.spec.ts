@@ -9,10 +9,10 @@ describe('MapComponent', () => {
   let fixture: ComponentFixture<MapComponent>;
 
   class DialogData {
-    placeId: string
+    placeId: string;
   }
 
-  let mockDialogData = new DialogData();
+  const mockDialogData = new DialogData();
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({

@@ -1,0 +1,55 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+}
+
+h2 {
+  margin: 0rem;
+  text-align: center;
+}
+
+label + input,
+label + textarea,
+label ~ div,
+.prompt {
+  margin-top: 0.5rem;
+}
+
+.field-group {
+  margin-top: 1.5rem;
+}
+
+fieldset > legend ~ div {
+  margin-top: 0.5rem;
+}
+
+fieldset {
+  margin-top: 1rem;
+}
+
+.form__text--invalid {
+  border: 2px solid #a94442 !important;
+}
+
+.input {
+  width: 100%;
+  border: 2px solid #8b8a8b;
+}
+
+.input:not(textarea)
+{
+  line-height: 1;
+  height: 2.25rem;
+}
+
+.btn--disabled[disabled] {
+  background-color: #424242;
+  cursor: not-allowed;
+}
+
+@media only screen and (min-width: 1200px) {
+  .content {
+    margin: 0rem 15rem;
+  }
+}
