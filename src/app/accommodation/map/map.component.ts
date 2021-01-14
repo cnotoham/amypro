@@ -4,7 +4,7 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Slide } from '../slide';
 
 export interface DialogData {
-  placeId: string
+  placeId: string;
 }
 
 @Component({

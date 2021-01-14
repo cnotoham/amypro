@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { BookingComponent } from './booking.component';
 
@@ -8,7 +9,10 @@ describe('BookingComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BookingComponent ]
+      declarations: [ BookingComponent ],
+      imports: [
+        ReactiveFormsModule
+      ]
     })
     .compileComponents();
   }));

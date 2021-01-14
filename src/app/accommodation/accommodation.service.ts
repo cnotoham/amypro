@@ -87,7 +87,7 @@ export class AccommodationService {
   }
 
   public getAccommodation(id: number): Observable<Accommodation> {
-    const accommodation = this.accommodation.slice(id-1);
+    const accommodation = this.accommodation.slice(id - 1);
     return of(accommodation[0]);
   }
 }
