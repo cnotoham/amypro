@@ -1,0 +1,25 @@
+label + input,
+label + textarea,
+label ~ div,
+.prompt {
+  margin-top: 0.5rem;
+}
+
+.field-group {
+  margin-top: 1.5rem;
+}
+
+.form__text--invalid {
+  border: 2px solid #a94442 !important;
+}
+
+.input {
+  width: 100%;
+  border: 2px solid #8b8a8b;
+}
+
+.input:not(textarea)
+{
+  line-height: 1;
+  height: 2.25rem;
+}

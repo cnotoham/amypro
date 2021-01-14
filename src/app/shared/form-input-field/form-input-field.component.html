@@ -1,0 +1,36 @@
+<div class="field-group" [formGroup]="group" *ngIf="!required else mandatory">
+  <label [for]="getId">{{ label | titlecase }}</label>
+  <input [type]="getType"
+       class="input"
+       [id]="getId"
+       [formControlName]="getFormControlName"
+       [placeholder]="getPlaceholder"
+       [maxlength]="getMaxlength"/>
+</div>
+
+<ng-template #mandatory>
+  <div class="field-group" [formGroup]="group">
+    <label [for]="getId">{{ label | titlecase }}</label>
+    <input [type]="getType"
+         class="input"
+         [id]="getId"
+         [formControlName]="getFormControlName"
+         [placeholder]="getPlaceholder"
+         [maxlength]="getMaxlength"
+         [ngClass]="{'form__text--invalid' : (group.get(id).touched ||
+                                              group.get(id).dirty) &&
+                                              group.get(id).invalid }"
+         required />
+  </div>
+  <div class="prompt" *ngIf="(group.get(id).touched ||
+                              group.get(id).dirty) &&
+                              group.get(id).errors?.required">
+    Please fill out this field
+  </div>
+  <div class="prompt" *ngIf="(group.get(id).touched ||
+                              group.get(id).dirty) &&
+                              group.get(id).errors?.email &&
+                              isTypeEmail()">
+    Please enter a valid email
+  </div>
+</ng-template>
