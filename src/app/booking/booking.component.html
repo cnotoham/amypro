@@ -1,13 +1,13 @@
 <div class="content">
   <div>
-    <h1>Booking Application Form</h1>
+    <h2>Booking Application Form</h2>
   </div>
   <div>
     <form role="form" novalidate (ngSubmit)="onSubmit()" [formGroup]="bookingForm">
       <fieldset>
         <legend>Personal Details</legend>
         <div class="field-group">
-          <label for="nameId">Name:</label>
+          <label for="nameId">Name</label>
           <input type="text"
                class="input"
                id="nameId"
@@ -24,7 +24,7 @@
           </div>
         </div>
         <div class="field-group">
-          <label for="ageId">Age:</label>
+          <label for="ageId">Age</label>
           <input type="input"
                class="input"
                id="ageId"
@@ -34,7 +34,7 @@
         </div>
         <div class="field-group">
           <fieldset>
-            <label>Gender:</label>
+            <label>Gender</label>
             <div>
               <input id="maleId" type="radio" value="male" formControlName="gender" />
               <label for="maleId"> Male</label>
@@ -46,7 +46,7 @@
           </fieldset>
         </div>
         <div class="field-group">
-          <label for="addressId">Address:</label>
+          <label for="addressId">Address</label>
           <input type="text"
                class="input"
                id="addressId"
@@ -64,7 +64,7 @@
           </div>
         </div>
         <div class="field-group">
-          <label for="suburbId">Suburb/City:</label>
+          <label for="suburbId">Suburb/City</label>
           <input type="text"
                class="input"
                id="suburbId"
@@ -82,7 +82,7 @@
           </div>
         </div>
         <div class="field-group">
-          <label for="stateId">State:</label>
+          <label for="stateId">State</label>
           <input type="text"
                class="input"
                id="stateId"
@@ -100,7 +100,7 @@
           </div>
         </div>
         <div class="field-group">
-          <label for="postcodeId">Postcode:</label>
+          <label for="postcodeId">Postcode</label>
           <input type="text"
                class="input"
                id="postcodeId"
@@ -109,7 +109,7 @@
                maxlength="30"/>
         </div>
         <div class="field-group">
-          <label for="countryId">Country:</label>
+          <label for="countryId">Country</label>
           <input type="text"
                class="input"
                id="countryId"
@@ -127,7 +127,7 @@
           </div>
         </div>
         <div class="field-group">
-          <label for="phoneId">Phone/Mobile:</label>
+          <label for="phoneId">Phone/Mobile</label>
           <input type="tel"
                class="input"
                id="phoneId"
@@ -136,7 +136,7 @@
                maxlength="50"/>
         </div>
         <div class="field-group">
-          <label for="emailId">Email:</label>
+          <label for="emailId">Email</label>
           <input type="email"
               class="input"
               id="emailId"
@@ -163,7 +163,7 @@
         <legend>Preferred location / Building</legend>
         <div class="field-group">
           <fieldset>
-            <label>Location:</label>
+            <label>Location</label>
             <div>
               <input id="dandenongId" type="radio" value="dandenong" formControlName="location" />
               <label for="dandenongId"> Dandenong Townhouses</label>
@@ -178,7 +178,7 @@
       <fieldset>
         <legend>Reference Details</legend>
         <div class="field-group">
-          <label for="refNameId">Name:</label>
+          <label for="refNameId">Name</label>
           <input type="text"
                  class="input"
                  id="refNameId"
@@ -195,7 +195,7 @@
           </div>
         </div>
         <div class="field-group">
-          <label for="refAddressId">Address:</label>
+          <label for="refAddressId">Address</label>
           <input type="text"
                class="input"
                id="refAddressId"
@@ -213,7 +213,7 @@
           </div>
         </div>
         <div class="field-group">
-          <label for="refSuburbId">Suburb/City:</label>
+          <label for="refSuburbId">Suburb/City</label>
           <input type="text"
                class="input"
                id="refSuburbId"
@@ -231,7 +231,7 @@
           </div>
         </div>
         <div class="field-group">
-          <label for="refStateId">State:</label>
+          <label for="refStateId">State</label>
           <input type="text"
                class="input"
                id="refStateId"
@@ -249,7 +249,7 @@
           </div>
         </div>
         <div class="field-group">
-          <label for="refPostcodeId">Postcode:</label>
+          <label for="refPostcodeId">Postcode</label>
           <input type="text"
                class="input"
                id="refPostcodeId"
@@ -258,7 +258,7 @@
                maxlength="30"/>
         </div>
         <div class="field-group">
-          <label for="refCountryId">Country:</label>
+          <label for="refCountryId">Country</label>
           <input type="text"
                class="input"
                id="refCountryId"
@@ -276,7 +276,7 @@
           </div>
         </div>
         <div class="field-group">
-          <label for="refPhoneId">Phone/Mobile:</label>
+          <label for="refPhoneId">Phone/Mobile</label>
           <input type="tel"
                class="input"
                id="refPhoneId"
@@ -285,7 +285,7 @@
                maxlength="50"/>
         </div>
         <div class="field-group">
-          <label for="refEmailId">Email:</label>
+          <label for="refEmailId">Email</label>
           <input type="email"
               class="input"
               id="refEmailId"
@@ -311,7 +311,7 @@
       <fieldset>
         <legend>Additional Comments</legend>
         <div class="field-group">
-          <label for="commentId">Any further information/enquiries/questions:</label>
+          <label for="commentId">Any further information/enquiries/questions</label>
           <textarea class="input"
                     formControlName="comment"
                     id="commentId"

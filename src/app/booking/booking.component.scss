@@ -4,6 +4,11 @@
   margin: 1rem;
 }
 
+h2 {
+  margin: 0rem;
+  text-align: center;
+}
+
 label + input,
 label + textarea,
 label ~ div,
@@ -11,9 +16,16 @@ label ~ div,
   margin-top: 0.5rem;
 }
 
-.field-group,
-fieldset {
+.field-group {
   margin-top: 1.5rem;
+}
+
+fieldset > legend ~ div {
+  margin-top: 0.5rem;
+}
+
+fieldset {
+  margin-top: 1rem;
 }
 
 .form__text--invalid {
