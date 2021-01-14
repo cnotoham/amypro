@@ -6,32 +6,20 @@
     <form role="form" novalidate (ngSubmit)="onSubmit()" [formGroup]="bookingForm">
       <fieldset>
         <legend>Personal Details</legend>
-        <div class="field-group">
-          <label for="nameId">Name</label>
-          <input type="text"
-               class="input"
-               id="nameId"
-               formControlName="name"
-               placeholder="Enter name (required)"
-               [ngClass]="{'form__text--invalid' : (bookingForm.get('name').touched ||
-                                                    bookingForm.get('name').dirty) &&
-                                                    bookingForm.get('name').invalid }"
-               required />
-          <div class="prompt" *ngIf="(bookingForm.get('name').touched ||
-                      bookingForm.get('name').dirty) &&
-                      bookingForm.get('name').errors?.required">
-            Please fill out this field
-          </div>
-        </div>
-        <div class="field-group">
-          <label for="ageId">Age</label>
-          <input type="input"
-               class="input"
-               id="ageId"
-               formControlName="age"
-               placeholder="Enter age"
-               maxlength="2"/>
-        </div>
+        <app-form-input-field
+          [id]="'name'"
+          [label]="'name'"
+          [placeholder]="'Enter name'"
+          [required]="true"
+          [group]="bookingForm">
+        </app-form-input-field>
+        <app-form-input-field
+          [id]="'age'"
+          [label]="'age'"
+          [placeholder]="'Enter age'"
+          [group]="bookingForm"
+          [maxlength]="'2'">
+        </app-form-input-field>
         <div class="field-group">
           <fieldset>
             <label>Gender</label>
@@ -45,119 +33,62 @@
             </div>
           </fieldset>
         </div>
-        <div class="field-group">
-          <label for="addressId">Address</label>
-          <input type="text"
-               class="input"
-               id="addressId"
-               formControlName="address"
-               placeholder="Enter address (required)"
-               maxlength="50"
-               [ngClass]="{'form__text--invalid' : (bookingForm.get('address').touched ||
-                                                    bookingForm.get('address').dirty) &&
-                                                    bookingForm.get('address').invalid }"
-               required />
-          <div class="prompt" *ngIf="(bookingForm.get('address').touched ||
-                      bookingForm.get('address').dirty) &&
-                      bookingForm.get('address').errors?.required">
-            Please fill out this field
-          </div>
-        </div>
-        <div class="field-group">
-          <label for="suburbId">Suburb/City</label>
-          <input type="text"
-               class="input"
-               id="suburbId"
-               formControlName="suburb"
-               placeholder="Enter suburb/city (required)"
-               maxlength="100"
-               [ngClass]="{'form__text--invalid' : (bookingForm.get('suburb').touched ||
-                                                    bookingForm.get('suburb').dirty) &&
-                                                    bookingForm.get('suburb').invalid }"
-               required />
-          <div class="prompt" *ngIf="(bookingForm.get('suburb').touched ||
-                      bookingForm.get('suburb').dirty) &&
-                      bookingForm.get('suburb').errors?.required">
-            Please fill out this field
-          </div>
-        </div>
-        <div class="field-group">
-          <label for="stateId">State</label>
-          <input type="text"
-               class="input"
-               id="stateId"
-               formControlName="state"
-               placeholder="Enter state (required)"
-               maxlength="100"
-               [ngClass]="{'form__text--invalid' : (bookingForm.get('state').touched ||
-                                                    bookingForm.get('state').dirty) &&
-                                                    bookingForm.get('state').invalid }"
-               required />
-          <div class="prompt" *ngIf="(bookingForm.get('state').touched ||
-                      bookingForm.get('state').dirty) &&
-                      bookingForm.get('state').errors?.required">
-            Please fill out this field
-          </div>
-        </div>
-        <div class="field-group">
-          <label for="postcodeId">Postcode</label>
-          <input type="text"
-               class="input"
-               id="postcodeId"
-               formControlName="postcode"
-               placeholder="Enter postcode"
-               maxlength="30"/>
-        </div>
-        <div class="field-group">
-          <label for="countryId">Country</label>
-          <input type="text"
-               class="input"
-               id="countryId"
-               formControlName="country"
-               placeholder="Enter country (required)"
-               maxlength="50"
-               [ngClass]="{'form__text--invalid' : (bookingForm.get('country').touched ||
-                                                    bookingForm.get('country').dirty) &&
-                                                    bookingForm.get('country').invalid }"
-               required />
-          <div class="prompt" *ngIf="(bookingForm.get('country').touched ||
-                      bookingForm.get('country').dirty) &&
-                      bookingForm.get('country').errors?.required">
-            Please fill out this field
-          </div>
-        </div>
-        <div class="field-group">
-          <label for="phoneId">Phone/Mobile</label>
-          <input type="tel"
-               class="input"
-               id="phoneId"
-               formControlName="phone"
-               placeholder="Enter phone/mobile"
-               maxlength="50"/>
-        </div>
-        <div class="field-group">
-          <label for="emailId">Email</label>
-          <input type="email"
-              class="input"
-              id="emailId"
-              formControlName="email"
-              placeholder="Enter email (required)"
-              maxlength="50"
-              [ngClass]="{'form__text--invalid' : (bookingForm.get('email').touched ||
-                                          bookingForm.get('email').dirty) &&
-                                          bookingForm.get('email').invalid }"
-              required />
-          <div class="prompt" *ngIf="(bookingForm.get('email').touched ||
-                      bookingForm.get('email').dirty) &&
-                      bookingForm.get('email').errors?.required">
-            Please fill out this field
-          </div>
-          <div class="prompt" *ngIf="(bookingForm.get('email').touched ||
-                      bookingForm.get('email').dirty) &&
-                      bookingForm.get('email').errors?.email">
-            Please enter a valid email
-          </div>
-        </div>
+        <app-form-input-field
+          [id]="'address'"
+          [label]="'address'"
+          [placeholder]="'Enter address'"
+          [required]="true"
+          [group]="bookingForm"
+          [maxlength]="'50'">
+        </app-form-input-field>
+        <app-form-input-field
+          [id]="'suburb'"
+          [label]="'suburb/city'"
+          [placeholder]="'Enter suburb/city'"
+          [required]="true"
+          [group]="bookingForm"
+          [maxlength]="'100'">
+        </app-form-input-field>
+        <app-form-input-field
+          [id]="'state'"
+          [label]="'state'"
+          [placeholder]="'Enter state'"
+          [required]="true"
+          [group]="bookingForm"
+          [maxlength]="'100'">
+        </app-form-input-field>
+        <app-form-input-field
+          [id]="'postcode'"
+          [label]="'postcode'"
+          [placeholder]="'Enter postcode'"
+          [group]="bookingForm"
+          [maxlength]="'30'">
+        </app-form-input-field>
+        <app-form-input-field
+          [id]="'country'"
+          [label]="'country'"
+          [placeholder]="'Enter country'"
+          [required]="true"
+          [group]="bookingForm"
+          [maxlength]="'50'">
+        </app-form-input-field>
+        <app-form-input-field
+          [id]="'phone'"
+          [type]="'tel'"
+          [label]="'phone/mobile'"
+          [placeholder]="'Enter phone/mobile'"
+          [group]="bookingForm"
+          [maxlength]="'50'">
+        </app-form-input-field>
+        <app-form-input-field
+          [id]="'email'"
+          [type]="'email'"
+          [label]="'email'"
+          [placeholder]="'Enter email'"
+          [group]="bookingForm"
+          [required]="true"
+          [maxlength]="'50'">
+        </app-form-input-field>
       </fieldset>
       <fieldset>
         <legend>Preferred location / Building</legend>
@@ -177,136 +108,69 @@
       </fieldset>
       <fieldset>
         <legend>Reference Details</legend>
-        <div class="field-group">
-          <label for="refNameId">Name</label>
-          <input type="text"
-                 class="input"
-                 id="refNameId"
-                 formControlName="refName"
-                 placeholder="Enter name (required)"
-                 [ngClass]="{'form__text--invalid' : (bookingForm.get('refName').touched ||
-                                                      bookingForm.get('refName').dirty) &&
-                                                      bookingForm.get('refName').invalid }"
-                 required />
-          <div class="prompt" *ngIf="(bookingForm.get('refName').touched ||
-                                      bookingForm.get('refName').dirty) &&
-                                      bookingForm.get('refName').errors?.required">
-            Please fill out this field
-          </div>
-        </div>
-        <div class="field-group">
-          <label for="refAddressId">Address</label>
-          <input type="text"
-               class="input"
-               id="refAddressId"
-               formControlName="refAddress"
-               placeholder="Enter address (required)"
-               maxlength="50"
-               [ngClass]="{'form__text--invalid' : (bookingForm.get('refAddress').touched ||
-                                                    bookingForm.get('refAddress').dirty) &&
-                                                    bookingForm.get('refAddress').invalid }"
-               required />
-          <div class="prompt" *ngIf="(bookingForm.get('refAddress').touched ||
-                                      bookingForm.get('refAddress').dirty) &&
-                                      bookingForm.get('refAddress').errors?.required">
-            Please fill out this field
-          </div>
-        </div>
-        <div class="field-group">
-          <label for="refSuburbId">Suburb/City</label>
-          <input type="text"
-               class="input"
-               id="refSuburbId"
-               formControlName="refSuburb"
-               placeholder="Enter suburb/city (required)"
-               maxlength="100"
-               [ngClass]="{'form__text--invalid' : (bookingForm.get('refSuburb').touched ||
-                                                    bookingForm.get('refSuburb').dirty) &&
-                                                    bookingForm.get('refSuburb').invalid }"
-               required />
-          <div class="prompt" *ngIf="(bookingForm.get('refSuburb').touched ||
-                                      bookingForm.get('refSuburb').dirty) &&
-                                      bookingForm.get('refSuburb').errors?.required">
-            Please fill out this field
-          </div>
-        </div>
-        <div class="field-group">
-          <label for="refStateId">State</label>
-          <input type="text"
-               class="input"
-               id="refStateId"
-               formControlName="refState"
-               placeholder="Enter state (required)"
-               maxlength="100"
-               [ngClass]="{'form__text--invalid' : (bookingForm.get('refState').touched ||
-                                                    bookingForm.get('refState').dirty) &&
-                                                    bookingForm.get('refState').invalid }"
-               required />
-          <div class="prompt" *ngIf="(bookingForm.get('refState').touched ||
-                                      bookingForm.get('refState').dirty) &&
-                                      bookingForm.get('refState').errors?.required">
-            Please fill out this field
-          </div>
-        </div>
-        <div class="field-group">
-          <label for="refPostcodeId">Postcode</label>
-          <input type="text"
-               class="input"
-               id="refPostcodeId"
-               formControlName="refPostcode"
-               placeholder="Enter postcode"
-               maxlength="30"/>
-        </div>
-        <div class="field-group">
-          <label for="refCountryId">Country</label>
-          <input type="text"
-               class="input"
-               id="refCountryId"
-               formControlName="refCountry"
-               placeholder="Enter country (required)"
-               maxlength="50"
-               [ngClass]="{'form__text--invalid' : (bookingForm.get('refCountry').touched ||
-                                                    bookingForm.get('refCountry').dirty) &&
-                                                    bookingForm.get('refCountry').invalid }"
-               required />
-          <div class="prompt" *ngIf="(bookingForm.get('refCountry').touched ||
-                                      bookingForm.get('refCountry').dirty) &&
-                                      bookingForm.get('refCountry').errors?.required">
-            Please fill out this field
-          </div>
-        </div>
-        <div class="field-group">
-          <label for="refPhoneId">Phone/Mobile</label>
-          <input type="tel"
-               class="input"
-               id="refPhoneId"
-               formControlName="refPhone"
-               placeholder="Enter phone/mobile"
-               maxlength="50"/>
-        </div>
-        <div class="field-group">
-          <label for="refEmailId">Email</label>
-          <input type="email"
-              class="input"
-              id="refEmailId"
-              formControlName="refEmail"
-              placeholder="Enter email (required)"
-              maxlength="50"
-              [ngClass]="{'form__text--invalid' : (bookingForm.get('refEmail').touched ||
-                                                   bookingForm.get('refEmail').dirty) &&
-                                                   bookingForm.get('refEmail').invalid }"
-              required />
-          <div class="prompt" *ngIf="(bookingForm.get('refEmail').touched ||
-                                      bookingForm.get('refEmail').dirty) &&
-                                      bookingForm.get('refEmail').errors?.required">
-            Please fill out this field
-          </div>
-          <div class="prompt" *ngIf="(bookingForm.get('refEmail').touched ||
-                                      bookingForm.get('refEmail').dirty) &&
-                                      bookingForm.get('refEmail').errors?.email">
-            Please enter a valid email
-          </div>
-        </div>
+        <app-form-input-field
+          [id]="'refName'"
+          [label]="'name'"
+          [placeholder]="'Enter name'"
+          [required]="true"
+          [group]="bookingForm">
+        </app-form-input-field>
+        <app-form-input-field
+          [id]="'refAddress'"
+          [label]="'address'"
+          [placeholder]="'Enter address'"
+          [required]="true"
+          [maxlength]="'50'"
+          [group]="bookingForm">
+        </app-form-input-field>
+        <app-form-input-field
+          [id]="'refSuburb'"
+          [label]="'suburb/city'"
+          [placeholder]="'Enter suburb/city'"
+          [required]="true"
+          [group]="bookingForm"
+          [maxlength]="'100'">
+        </app-form-input-field>
+        <app-form-input-field
+          [id]="'refState'"
+          [label]="'state'"
+          [placeholder]="'Enter state'"
+          [required]="true"
+          [group]="bookingForm"
+          [maxlength]="'100'">
+        </app-form-input-field>
+        <app-form-input-field
+          [id]="'refPostcode'"
+          [label]="'postcode'"
+          [placeholder]="'Enter postcode'"
+          [group]="bookingForm"
+          [maxlength]="'30'">
+        </app-form-input-field>
+        <app-form-input-field
+          [id]="'refCountry'"
+          [label]="'country'"
+          [placeholder]="'Enter country'"
+          [required]="true"
+          [group]="bookingForm"
+          [maxlength]="'50'">
+        </app-form-input-field>
+        <app-form-input-field
+          [id]="'refPhone'"
+          [type]="'tel'"
+          [label]="'phone/mobile'"
+          [placeholder]="'Enter phone/mobile'"
+          [group]="bookingForm"
+          [maxlength]="'50'">
+        </app-form-input-field>
+        <app-form-input-field
+          [id]="'refEmail'"
+          [type]="'email'"
+          [label]="'email'"
+          [placeholder]="'Enter email'"
+          [group]="bookingForm"
+          [required]="true"
+          [maxlength]="'50'">
+        </app-form-input-field>
       </fieldset>
       <fieldset>
         <legend>Additional Comments</legend>
