@@ -43,6 +43,8 @@ export class BookingComponent implements OnInit {
 
   async onSubmit(): Promise<void> {
     this.isLoading = true;
+    this.showError = false;
+    this.showPrompt = false;
     const url = `${ environment.azFuncBaseUri }api/SendMail`;
 
     const reqBody = {
