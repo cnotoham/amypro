@@ -26,21 +26,29 @@ const httpTrigger: AzureFunction = async function (context: Context, req: HttpRe
     try {
       const resp = await SendGrid.send(msg);
     } catch (error) {
-      let errMsg = 'An error has occurred';
-      if (error.response) {
-        context.log(`${errMsg}: ${ error.response.body }`);
-        context.res = {
-          status: 500,
-          body: `${errMsg}: ${ error.response.body }`
-        };
-        return;
-      }
-
+      context.log(`Error occurred: ${error}`);
       context.res = {
         status: 500,
-        body: errMsg
+        body: error
       };
+
       return;
+
+    // let errMsg = 'An error has occurred';
+    //   if (error.response) {
+    //     context.log(`${errMsg}: ${ error.response.body }`);
+    //     context.res = {
+    //       status: 500,
+    //       body: `${errMsg}: ${ error.response.body }`
+    //     };
+    //     return;
+    //   }
+
+      // context.res = {
+      //   status: 500,
+      //   body: errMsg
+      // };
+      // return;
     }
 
     context.res = {
