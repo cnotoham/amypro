@@ -19,7 +19,7 @@ export class FormInputFieldComponent implements OnInit {
     return this.id + 'Id';
   }
 
-  get getType() : string {
+  get getType(): string {
     return this.type ? this.type : 'text';
   }
 
@@ -36,12 +36,12 @@ export class FormInputFieldComponent implements OnInit {
   }
 
   get getMaxlength(): number {
-    return this.maxlength? this.maxlength : null;
+    return this.maxlength ? this.maxlength : null;
   }
 
   constructor() { }
 
-  isTypeEmail() : boolean {
+  isTypeEmail(): boolean {
     return this.type === 'email';
   }
 
