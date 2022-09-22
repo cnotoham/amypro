@@ -1,0 +1,13 @@
+POST http://localhost:7071/api/SendMail HTTP/1.1
+content-type: application/json
+
+{
+    "type": "contact",
+    "data": {
+        "name": "Cornel",
+        "subject": "Test email",
+        "phone": "test phone",
+        "email": "test@email.com",
+        "message": "test email. Ko or Amy please ignore this email"
+    }
+}
