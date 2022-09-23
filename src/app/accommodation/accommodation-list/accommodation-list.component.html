@@ -1,56 +1,28 @@
-<div class="accommodation-list-container" *ngIf="!isLoading else loading">
+<div class="accommodation-list-container">
   <div class="carousel-container">
     <div>
-      <mat-carousel
-        timings="200ms ease-in"
-        interval="6000"
-        proportion=80
-        [hideArrows]="false"
-        [hideIndicators]="true"
-      >
-        <mat-carousel-slide
-          *ngFor="let slide of dandenongSlides; let i = index"
-          [image]="slide.imageUrl"
-          [hideOverlay]="false"
-        ></mat-carousel-slide>
-      </mat-carousel>
+      <img class="responsive" [src]="this.dandenongFirstImageUrl" alt="dandenong" width="560" height="460">
     </div>
     <div class="carousel-footer">
-      <div class="label--emphasize">
-        {{ dandenong }}
+      <div>
+        <button mat-raised-button (click)="showImages('dandenong')">View Images</button>
       </div>
-      <div class="btn--display-mode">
+      <div>
         <button mat-raised-button (click)="showMap('dandenong')">show map</button>
       </div>
     </div>
   </div>
   <div class="carousel-container">
     <div>
-      <mat-carousel
-        timings="200ms ease-in"
-        interval="6000"
-        proportion=80
-        [hideArrows]="false"
-        [hideIndicators]="true"
-      >
-        <mat-carousel-slide
-          *ngFor="let slide of blackBurnSlides; let i = index"
-          [image]="slide.imageUrl"
-          [hideOverlay]="false"
-        ></mat-carousel-slide>
-      </mat-carousel>
+      <img class="responsive" [src]="this.blackBurnFirstImageUrl" alt="dandenong" width="560" height="460">
     </div>
     <div class="carousel-footer">
       <div class="label--emphasize">
-        {{ blackburn }}
+        <button mat-raised-button (click)="showImages('blackburn')">View Images</button>
       </div>
-      <div class="btn--display-mode">
+      <div>
         <button mat-raised-button (click)="showMap('blackburn')">show map</button>
       </div>
     </div>
   </div>
 </div>
-<ng-template #loading>
-  <p>loading images...</p>
-  <mat-progress-bar mode="indeterminate" color="accent"></mat-progress-bar>
-</ng-template>

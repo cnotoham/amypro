@@ -16,7 +16,9 @@ export class AccommodationListComponent implements OnInit {
   dandenong: string;
   blackburn: string;
   isLoading = true;
-  srcArray: Slide[];
+  dandenongFirstImageUrl = '';
+  blackBurnFirstImageUrl = '';
+  // srcArray: Slide[];
 
   private placeIdMap = new Map();
 
@@ -30,12 +32,11 @@ export class AccommodationListComponent implements OnInit {
         .subscribe(resp => {
           this.dandenongSlides = resp[0].slides;
           this.dandenong = resp[0].name;
+          this.dandenongFirstImageUrl = resp[0].slides[0].imageUrl;
           this.blackBurnSlides = resp[1].slides;
           this.blackburn = resp[1].name;
-
-          this.srcArray = this.dandenongSlides.concat(this.blackBurnSlides);
-          this.cacheImages(this.srcArray.map(slide => slide.imageUrl));
-          });
+          this.blackBurnFirstImageUrl = resp[1].slides[1].imageUrl;
+        });
   }
 
   showMap(property: string): void {
@@ -44,6 +45,10 @@ export class AccommodationListComponent implements OnInit {
         placeId: this.placeIdMap.get(property)
       }
     });
+  }
+
+  showImages = async (property: string) => {
+
   }
 
   cacheImages = async (srcArray) => {
