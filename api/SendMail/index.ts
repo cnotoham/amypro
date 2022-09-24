@@ -1,7 +1,7 @@
-import { AzureFunction, Context, HttpRequest } from "@azure/functions"
+import { AzureFunction, Context, HttpRequest } from '@azure/functions';
 import * as SendGrid from '@sendgrid/mail';
 
-const httpTrigger: AzureFunction = async function (context: Context, req: HttpRequest): Promise<void> {
+const httpTrigger: AzureFunction = async (context: Context, req: HttpRequest): Promise<void> => {
   if (req.body && req.body.type && req.body.data) {
     let msgBody = '';
     if (req.body.type !== 'contact' && req.body.type !== 'booking') {
@@ -19,7 +19,7 @@ const httpTrigger: AzureFunction = async function (context: Context, req: HttpRe
     const msg = {
       to: process.env.emailTo,
       from: process.env.emailFrom,
-      subject: subject,
+      subject,
       text: msgBody
     };
 
@@ -34,16 +34,15 @@ const httpTrigger: AzureFunction = async function (context: Context, req: HttpRe
 
       return;
 
-    // let errMsg = 'An error has occurred';
-    //   if (error.response) {
-    //     context.log(`${errMsg}: ${ error.response.body }`);
-    //     context.res = {
-    //       status: 500,
-    //       body: `${errMsg}: ${ error.response.body }`
-    //     };
-    //     return;
-    //   }
-
+      // let errMsg = 'An error has occurred';
+      //   if (error.response) {
+      //     context.log(`${errMsg}: ${ error.response.body }`);
+      //     context.res = {
+      //       status: 500,
+      //       body: `${errMsg}: ${ error.response.body }`
+      //     };
+      //     return;
+      //   }
       // context.res = {
       //   status: 500,
       //   body: errMsg
@@ -52,8 +51,8 @@ const httpTrigger: AzureFunction = async function (context: Context, req: HttpRe
     }
 
     context.res = {
-        // status: 200, /* Defaults to 200 */
-        body: 'success'
+      // status: 200, /* Defaults to 200 */
+      body: 'success'
     };
     return;
   }
@@ -64,7 +63,7 @@ const httpTrigger: AzureFunction = async function (context: Context, req: HttpRe
   };
 };
 
-function constructEmail(req: HttpRequest): string {
+const constructEmail = (req: HttpRequest) => {
   if (req.body.type === 'contact') {
     return constructContactUsEmail(req);
   }
@@ -72,10 +71,9 @@ function constructEmail(req: HttpRequest): string {
   if (req.body.type === 'booking') {
     return constructBookingEmail(req);
   }
-}
+};
 
-function constructContactUsEmail(req: HttpRequest): string {
-  return `Note that this is an automated email message. Please do not reply to this email.
+const constructContactUsEmail = (req: HttpRequest) => `Note that this is an automated email message. Please do not reply to this email.
 
   Enquiry received from:
 
@@ -86,10 +84,8 @@ function constructContactUsEmail(req: HttpRequest): string {
   Message:
   ${ req.body.data.message }
   `;
-}
 
-function constructBookingEmail(req:HttpRequest): string {
-  return `Note that this is an automated email message. Please do not reply to this email.
+const constructBookingEmail = (req:HttpRequest) => `Note that this is an automated email message. Please do not reply to this email.
 
   Booking received from:
 
@@ -118,7 +114,6 @@ function constructBookingEmail(req:HttpRequest): string {
   Country: ${ req.body.data.refCountry }
   Phone: ${ req.body.data.refPhone }
   Email: ${ req.body.data.refEmail }
-  `;;
-}
+  `;
 
 export default httpTrigger;
