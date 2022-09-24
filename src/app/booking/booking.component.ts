@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -9,12 +9,12 @@ import { environment } from 'src/environments/environment';
 })
 export class BookingComponent implements OnInit {
 
-  bookingForm: UntypedFormGroup;
+  bookingForm: FormGroup;
   showPrompt = false;
   showError = false;
   isLoading = false;
 
-  constructor(private fb: UntypedFormBuilder) { }
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.bookingForm = this.fb.group({

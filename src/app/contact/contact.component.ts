@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UntypedFormGroup, Validators, UntypedFormBuilder } from '@angular/forms';
+import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { environment } from '../../environments/environment';
 @Component({
   selector: 'app-contact',
@@ -8,12 +8,12 @@ import { environment } from '../../environments/environment';
 })
 export class ContactComponent implements OnInit {
 
-  contactUsForm: UntypedFormGroup;
+  contactUsForm: FormGroup;
   showPrompt = false;
   showError = false;
   isLoading = false;
 
-  constructor(private fb: UntypedFormBuilder) { }
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.contactUsForm = this.fb.group({
