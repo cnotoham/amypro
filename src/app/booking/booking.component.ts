@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -9,12 +9,12 @@ import { environment } from 'src/environments/environment';
 })
 export class BookingComponent implements OnInit {
 
-  bookingForm: FormGroup;
+  bookingForm: UntypedFormGroup;
   showPrompt = false;
   showError = false;
   isLoading = false;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: UntypedFormBuilder) { }
 
   ngOnInit(): void {
     this.bookingForm = this.fb.group({
@@ -56,6 +56,7 @@ export class BookingComponent implements OnInit {
     const resp = await fetch(url, {
                                     method: 'POST',
                                     headers: {
+                                      // eslint-disable-next-line @typescript-eslint/naming-convention
                                       'Content-Type': 'application/json'
                                     },
                                     body: JSON.stringify(reqBody)

@@ -12,21 +12,18 @@ import { MatDialogModule} from '@angular/material/dialog';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 @NgModule({
-  declarations: [
-    AccommodationComponent,
-    MapComponent,
-    KeyFeatureComponent,
-    AccommodationListComponent
-  ],
-  imports: [
-    CommonModule,
-    AccommodationRoutingModule,
-    MatButtonModule,
-    MatDialogModule,
-    MatProgressBarModule,
-  ],
-  entryComponents: [
-    MapComponent
-  ]
+    declarations: [
+        AccommodationComponent,
+        MapComponent,
+        KeyFeatureComponent,
+        AccommodationListComponent
+    ],
+    imports: [
+        CommonModule,
+        AccommodationRoutingModule,
+        MatButtonModule,
+        MatDialogModule,
+        MatProgressBarModule,
+    ]
 })
 export class AccommodationModule { }

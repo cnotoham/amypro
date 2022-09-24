@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { UntypedFormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-form-input-field',
@@ -10,10 +10,12 @@ export class FormInputFieldComponent implements OnInit {
   @Input() id: string;
   @Input() type: string;
   @Input() label: string;
-  @Input() group: FormGroup;
+  @Input() group: UntypedFormGroup;
   @Input() required = false;
   @Input() placeholder: string;
   @Input() maxlength: number;
+
+  constructor() { }
 
   get getId(): string {
     return this.id + 'Id';
@@ -38,8 +40,6 @@ export class FormInputFieldComponent implements OnInit {
   get getMaxlength(): number {
     return this.maxlength ? this.maxlength : null;
   }
-
-  constructor() { }
 
   isTypeEmail(): boolean {
     return this.type === 'email';

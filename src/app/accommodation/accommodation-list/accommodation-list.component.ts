@@ -49,20 +49,18 @@ export class AccommodationListComponent implements OnInit {
 
   showImages = async (property: string) => {
 
-  }
+  };
 
   cacheImages = async (srcArray) => {
-    const promises = await srcArray.map((src) => {
-      return new Promise((resolve, reject) => {
+    const promises = await srcArray.map((src) => new Promise((resolve, reject) => {
         const img = new Image();
 
         img.onload = resolve;
         img.onerror = reject;
         img.src = src;
-      });
-    });
+      }));
 
     await Promise.all(promises);
     this.isLoading = false;
-  }
+  };
 }

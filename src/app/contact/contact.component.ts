@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { UntypedFormGroup, Validators, UntypedFormBuilder } from '@angular/forms';
 import { environment } from '../../environments/environment';
 @Component({
   selector: 'app-contact',
@@ -8,12 +8,12 @@ import { environment } from '../../environments/environment';
 })
 export class ContactComponent implements OnInit {
 
-  contactUsForm: FormGroup;
+  contactUsForm: UntypedFormGroup;
   showPrompt = false;
   showError = false;
   isLoading = false;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: UntypedFormBuilder) { }
 
   ngOnInit(): void {
     this.contactUsForm = this.fb.group({
@@ -39,6 +39,7 @@ export class ContactComponent implements OnInit {
     const resp = await fetch(url, {
                                     method: 'POST',
                                     headers: {
+                                      // eslint-disable-next-line @typescript-eslint/naming-convention
                                       'Content-Type': 'application/json'
                                     },
                                     body: JSON.stringify(reqBody)
