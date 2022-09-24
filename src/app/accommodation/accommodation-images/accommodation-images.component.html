@@ -1,0 +1,16 @@
+<h2 mat-dialog-title>{{ data.property | titlecase }}  Images</h2>
+<mat-dialog-content class="mat-typography">
+  <div *ngFor="let slide of data.slides; first as isFirst">
+    <img
+      class="responsive"
+      [ngSrc]="'assets/images/' + slide.imageUrl"
+      [alt]="data.property"
+      [priority]="isFirst ? 'priority' : 'false'"
+      width="560"
+      height="460"
+    />
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>Close</button>
+</mat-dialog-actions>

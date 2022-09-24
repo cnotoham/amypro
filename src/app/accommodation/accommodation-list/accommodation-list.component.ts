@@ -1,8 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { AccommodationImagesComponent } from '../accommodation-images/accommodation-images.component';
 import { AccommodationService } from '../accommodation.service';
 import { MapComponent } from '../map/map.component';
 import { Slide } from '../slide';
+
+export interface AccommodationDialogData {
+  property: string;
+  slides: Slide[];
+};
 
 @Component({
   selector: 'app-accommodation-list',
@@ -48,7 +54,21 @@ export class AccommodationListComponent implements OnInit {
   }
 
   showImages = async (property: string) => {
+    let accommodationSlides: Slide[];
+    if (property === 'dandenong') {
+      accommodationSlides = this.dandenongSlides;
+    }
 
+    if (property === 'blackburn') {
+      accommodationSlides = this.blackBurnSlides;
+    }
+
+    const dialogRef = this.dialog.open(AccommodationImagesComponent, {
+      data: {
+        property,
+        slides: accommodationSlides,
+      }
+    });
   };
 
   cacheImages = async (srcArray) => {
